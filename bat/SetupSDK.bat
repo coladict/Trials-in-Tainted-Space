@@ -1,10 +1,16 @@
 :user_configuration
 
 :: Path to Flex SDK
-set FLEX_SDK=C:\Users\Gedan\AppData\Local\FlashDevelop\Apps\flexairsdk\4.6.0+16.0.0
+if defined FLEX_SDK goto manual_flexsdk
+:: Windows uses version-sort by default, instead of simple string comparison.
+:: The result is that the highest version of the SDK installed will be last.
+for /d %%D in ( "%LOCALAPPDATA%\FlashDevelop\Apps\flexairsdk\*" ) DO set FLEX_SDK=%%D
+
+:manual_flexsdk
 set AUTO_INSTALL_IOS=yes
 
 :: Path to Android SDK
+if defined ANDROID_SDK goto validation
 set ANDROID_SDK=C:\Program Files (x86)\FlashDevelop\Tools\android
 
 

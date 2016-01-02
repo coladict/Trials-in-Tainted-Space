@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?> 
-<application xmlns="http://ns.adobe.com/air/application/15.0">
+<application xmlns="http://ns.adobe.com/air/application/16.0">
 	
-	<id>air.AirTemplateProj</id>
+	<id>com.fenoxo.tits</id>
 	<versionNumber>0.1</versionNumber>
 	<supportedProfiles>mobileDevice</supportedProfiles>
-	<filename>AirTemplateProj</filename>
+	<filename>TiTS</filename>
 	
-	<name>AirTemplateProj</name>
+	<name>TiTS</name>
 	<description></description>
 	<copyright></copyright>
 	
@@ -48,7 +48,7 @@
 	
 	<initialWindow>
 		<title>TiTS AIR DEV</title>
-		<content>AirTemplateProj.swf</content>
+		<content>TITS_AIR.swf</content>
 		<visible>true</visible>
 		<fullScreen>true</fullScreen>
 		<!--<autoOrients>false</autoOrients>-->

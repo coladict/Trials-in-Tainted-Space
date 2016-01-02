@@ -41,7 +41,8 @@ set OUTPUT=%DIST_PATH%\%DIST_NAME%%TARGET%.%DIST_EXT%
 echo Packaging: %OUTPUT%
 echo using certificate: %CERT_FILE%...
 echo.
-call adt -package -target %TYPE%%TARGET% %OPTIONS% %SIGNING_OPTIONS% "%OUTPUT%" "%APP_XML%" %FILE_OR_DIR%
+:: echo adt -package -target %TYPE%%TARGET% -arch %ARCH% %OPTIONS% %SIGNING_OPTIONS% "%OUTPUT%" "%APP_XML%" %FILE_OR_DIR%
+call adt -package -target %TYPE%%TARGET% -arch %ARCH% %OPTIONS% %SIGNING_OPTIONS% "%OUTPUT%" "%APP_XML%" %FILE_OR_DIR%
 echo.
 if errorlevel 1 goto failed
 goto end
@@ -58,7 +59,7 @@ echo - configure your developer key and project's Provisioning Profile
 echo   in 'bat\SetupApplication.bat'.
 echo.
 if %PAUSE_ERRORS%==1 pause
-exit
+exit /b 1
 
 :failed
 echo APK setup creation FAILED.
@@ -68,6 +69,7 @@ echo - did you build your project in FlashDevelop?
 echo - verify AIR SDK target version in %APP_XML%
 echo.
 if %PAUSE_ERRORS%==1 pause
-exit
+exit /b 1
 
 :end
+exit /b 0
