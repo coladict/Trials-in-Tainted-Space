@@ -75,6 +75,12 @@
 	import flash.events.UncaughtErrorEvent;
 	import flash.events.UncaughtErrorEvents;
 	import flash.display.LoaderInfo;
+	
+	CONFIG::air
+		import flash.desktop.NativeApplication;
+	CONFIG::air
+		import flash.desktop.SystemIdleMode;
+	
 
 	//Build the bottom drawer
 	public class TiTS extends MovieClip
@@ -419,7 +425,15 @@
 			this.configureCodex();
 			this.configureMails();
 			this.userInterface.showMainMenu();
+			preventSleep();
 			buildWTF();
+		}
+
+		private function preventSleep():void
+		{
+			CONFIG::air {
+				NativeApplication.nativeApplication.systemIdleMode = SystemIdleMode.KEEP_AWAKE;
+			}
 		}
 		
 		private function buildWTF():void
